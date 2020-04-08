@@ -1,26 +1,31 @@
 <html>
 	<head>
-		<title>This is my first web page</title>
+		<title>Image Gallery</title>
 
+		<!-- import bootstrap -->
+		<link rel="stylesheet"
+			  type="text/css"
+			  href="bootstrap.css"
+		      />
 
-	<link rel="stylesheet"
-		  type="text/css"
-		  href="bootstrap.css"
-	      />
+		<!-- import our own stylesheet -->
+		<link rel="stylesheet"
+			  type="text/css"
+			  href="styles.css"
+		      />	
 
-	<link rel="stylesheet"
-		  type="text/css"
-		  href="styles.css"
-	      />	
+		<!-- import jQuery -->
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	</head>
 	<body>
+		<!-- some header info (from Matthew's code) -->
 		<a 
 		href="index.html">
 			Home
 		</a>
 		 &nbsp;
 		<a 
-		href="aboutme.html">
+		href="about.html">
 			About me 
 		</a>
 		&nbsp;
@@ -31,20 +36,76 @@
 
 		</hr>
 	<div class="container">
-		<h1>This is my first web page</h1>
+		<h1>Image Gallery</h1>
 
+		<!--
+		   These are the thumbnail images.
+		   They are laid out using the 
+		   bootstrap grid.
+		   I have given them all the class
+		   "crop-image" which I use in the
+		   css and the javascript code.
+		-->
 		<div class="row">
-			<div class="col-md-3 thin_border">
-				Some content here for panel 1
+			<div class="col-md-3">
+				<img class="crop-img" 
+				  src="IMG_1.jpg" 
+				  alt="Abhigya_kiddo"/> 
 			</div>
-			<div class="col-md-9 thin_border">
-				Some content here for panel 2
+			<div class="col-md-3">
+				<img class="crop-img" 
+				  src="IMG_2.jpg" 
+				  alt="Abhigya_fun"/> 
+			</div>
+			<div class="col-md-3">
+				<img class="crop-img" 
+				  src="IMG_3.jpg" 
+				  alt="Abhigya_lover"/> 
+			</div>
+			<div class="col-md-3">
+				<img class="crop-img" 
+				   src="IMG_4.jpg" 
+				   alt="Abhigya_Crazy"/> 
+			</div>
+		</div>
+		<!--
+			this is the large image which is
+			on a row of its own. 
+			I will change it source in the 
+			javascript
+		-->
+		<div class="row">
+			<div class="col-md-12">
+				<img id="bigImage" 
+				  class="large-img" 
+				  src="IMG_1.jpg" 
+				  alt="Abhigya_kiddo"/> 
 			</div>
 		</div>
 	</div>
 
+	<script>
+		// when we click on the thumbnail
+		// we set the src attribute of the 
+		// big image to be the same as the 
+		// src of the image we have clicked on
+		// ("this"). This loads the same
+		// image file into the big image
+		$(".crop-img").click(function(){
+			$("#bigImage").attr('src', 
+				$(this).attr('src'));
+		});
+	</script>
+
 	</body>
 </html>
+
+
+
+
+
+
+
 
 
 
